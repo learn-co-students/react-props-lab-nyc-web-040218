@@ -1,16 +1,15 @@
 import React from 'react';
-const name = "Millenium Falcon";
-const speed = "75 parsecs";
-const hasRockets = true;
 
-class Spaceship extends React.Component {
+export default class Spaceship extends React.Component {
     render() {
+        const {name, speed, hasRockets, colors} = this.props;
+
         return (
             <div>
                 <h1>{name}</h1>
                 <p>
-                    {speed}<br>
-                    Rockets: {hasRockets}<br>
+                    Speed: {speed}
+                    Rockets: {hasRockets ? "Yes" : "No"}
                     Colors: {colors.join(', ')}
                 </p>
             </div>
@@ -19,7 +18,7 @@ class Spaceship extends React.Component {
 }
 
 Spaceship.defaultProps = {
-    colors: ['black', 'red'];
+    speed: 'slow',
+    hasRockets: false,
+    colors: ['black', 'red']
 };
-
-export default Spaceship;
